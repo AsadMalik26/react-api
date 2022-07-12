@@ -13,6 +13,7 @@ function App() {
     <Router>
       <div>
         <h1>
+          ABC Shop
           <TopMenu />
           XYZ Shop
         </h1>
