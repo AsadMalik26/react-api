@@ -1,23 +1,22 @@
-import { AppBar, Toolbar, Typography, } from '@mui/material';
-
-/* import { AppBar, Toolbar, Typography } from '@material-ui/core';
-import { makeStyles } from '@material-ui/styles'; */
 import React from 'react';
+import { AppBar, Toolbar, Typography, } from '@mui/material';
+import "./CSSFiles/TopMenuCss.css";
+
 import { Link } from 'react-router-dom';
 
-
-
 const TopMenu = () => {
-    // var hookClass = useStyles();
+
     return (
   <div>
-        {<AppBar>
+        <AppBar position="static">
             <Toolbar>
                 <Typography variant="h6">
-                    <Link to="/" style={{color:"white"}}>Home</Link>
+                    <Link to="/"  style={{color:"white", paddingRight:"1em"}}>Home</Link>
+                    <Link to="/products"  style={{color:"white", paddingRight:"1em"}}>Products</Link>
+                    <Link to="/contact-us"  style={{color:"white", paddingRight:"1em"}}>Contact Us</Link>
                 </Typography>
             </Toolbar>
-        </AppBar>}
+        </AppBar>
     </div> );
 }
  
