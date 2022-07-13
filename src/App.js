@@ -12,11 +12,9 @@ function App() {
   return (
     <Router>
       <div>
-        <h1>
-          ABC Shop
-          <TopMenu />
-          XYZ Shop
-        </h1>
+        <TopMenu />
+        <h6>Anonymous Text - Only after menu</h6>
+        <h1>XYZ Shop</h1>
         <Routes>
           {/* old method - above: Switch instead of Routes- below: component instead of element */}
           {/* <Route path="/" component={<LandingPage />} /> */}
