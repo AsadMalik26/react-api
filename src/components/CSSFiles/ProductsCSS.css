@@ -1,5 +1,5 @@
 .addBtn{
-    position: absolute;
-    bottom: 1em;
-    right: 1em;
+    position: fixed;
+    bottom: 1px;
+    right: 1px;
 }
