@@ -11,9 +11,12 @@ const TopMenu = () => {
         <AppBar position="static">
             <Toolbar>
                 <Typography variant="h6">
-                    <Link to="/"  style={{color:"white", paddingRight:"1em"}}>Home</Link>
-                    <Link to="/products"  style={{color:"white", paddingRight:"1em"}}>Products</Link>
-                    <Link to="/contact-us"  style={{color:"white", paddingRight:"1em"}}>Contact Us</Link>
+                    <Link to="/" className='Link'>Home</Link>
+                    <Link to="/products" className='Link'>Products</Link>
+                    <Link to="/contact-us" className='Link'>Contact Us</Link>
+                    {/* style={{color:"white", paddingRight:"1em"}}
+style={{color:"white", paddingRight:"1em"}}
+style={{color:"white", paddingRight:"1em"}} */}
                 </Typography>
             </Toolbar>
         </AppBar>
