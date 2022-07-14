@@ -1,11 +1,25 @@
 import { Button, Grid, TextField } from "@mui/material";
-import axios from "axios";
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import productOperation from "../../services/ProductOperations";
 
 const NewProduct = (props) => {
   const [title, setTitle] = useState("");
   const [price, setPrice] = useState(0);
   const [description, setDescription] = useState("");
+
+  const navigate = useNavigate();
+
+  const handleAddProduct = () => {
+    console.log("Add Clicked");
+    productOperation
+      .addProduct({ title, price, description })
+      .then((data) => {
+        console.log("Posted", data);
+        navigate("/products");
+      })
+      .catch((err) => console.log("Error", err));
+  };
 
   return (
     <Grid container spacing={1}>
@@ -50,21 +64,7 @@ const NewProduct = (props) => {
       {/* <Grid container> */}
       <Grid item xs={3}></Grid>
       <Grid item xs={6}>
-        <Button
-          variant="contained"
-          color="primary"
-          onClick={(e) => {
-            console.log("Add Clicked");
-            axios
-              .post("https://asad-crud-api.herokuapp.com/api/expense", {
-                title,
-                price,
-                description,
-              })
-              .then((res) => console.log("Posted", res.data))
-              .catch((res) => console.log("Error", res.error));
-          }}
-        >
+        <Button variant="contained" color="primary" onClick={handleAddProduct}>
           Add
         </Button>
       </Grid>

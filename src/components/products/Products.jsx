@@ -1,10 +1,10 @@
 import { Fab, Grid } from "@mui/material";
 import AddIcon from "@mui/icons-material/Add";
-import axios from "axios";
 import React, { useEffect, useState } from "react";
 import SingleProduct from "./SingleProduct";
 import "../CSSFiles/ProductsCSS.css";
 import { useNavigate } from "react-router-dom";
+import productOperation from "../../services/ProductOperations";
 
 const Products = () => {
   const [products, setProducts] = useState([]);
@@ -12,15 +12,14 @@ const Products = () => {
   // console.log("Calling Products component");
 
   const getData = () => {
-    axios
-      .get("https://asad-crud-api.herokuapp.com/api/expense")
-      .then((res) => {
-        setProducts(res.data);
+    productOperation
+      .getProduct()
+      .then((data) => {
+        setProducts(data);
         console.log("Data fetched");
       })
       .catch((error) => console.log("Error fetch data", error));
   };
-
   useEffect(getData, []);
 
   const navigate = useNavigate();
@@ -34,7 +33,7 @@ const Products = () => {
     <div>
       <h1>My Products</h1>
       <Fab
-        style={{ position: "absolute", bottom: "2rem", right: "2rem" }}
+        style={{ position: "fixed", bottom: "2rem", right: "2rem" }}
         color="primary"
         aria-label="add"
         onClick={handleAddNewItem}
