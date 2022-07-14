@@ -1,15 +1,43 @@
 import { Grid, Button } from "@mui/material";
 import React from "react";
-const SingleProduct = ({ product }) => {
+import { useNavigate } from "react-router-dom";
+import productOperation from "../../services/ProductOperations";
+
+const SingleProduct = (props) => {
+  const navigate = useNavigate();
+  const { product, onDelete } = props;
+
   return (
     <Grid item xs={4} style={{ border: "1px dotted" }}>
       <span>
         <h2>
           {product.title}
-          <Button variant="outlined" color="primary">
+          <Button
+            variant="outlined"
+            color="primary"
+            onClick={(e) => {
+              console.log("When Edit Clicked: e:", e);
+              console.log("When Edit Clicked: props:", props);
+              console.log("Navigate to update page");
+
+              navigate("/products/update/" + product._id);
+            }}
+          >
             Edit
-          </Button>{" "}
-          <Button variant="outlined" color="secondary">
+          </Button>
+          <Button
+            variant="outlined"
+            color="secondary"
+            onClick={(e) => {
+              productOperation
+                .deleteProduct(product._id)
+                .then((data) => {
+                  console.log("Deleted: ", data);
+                  onDelete();
+                })
+                .catch((err) => console.log("Error while delete: ", err));
+            }}
+          >
             Delete
           </Button>
         </h2>

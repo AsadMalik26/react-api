@@ -37,7 +37,7 @@ class ApiCalls {
   put = (url, data) =>
     new Promise((resolve, reject) => {
       axios
-        .put(url)
+        .put(url, data)
         .then((res) => {
           resolve(res.data);
         })

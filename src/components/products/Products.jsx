@@ -7,9 +7,16 @@ import { useNavigate } from "react-router-dom";
 import productOperation from "../../services/ProductOperations";
 
 const Products = () => {
+  const navigate = useNavigate();
   const [products, setProducts] = useState([]);
   // {title:"React", price:500, description:"Making React API by hard code testing "},{title:"React 2", price:300, description:"Making React API by hard code testing "}
   // console.log("Calling Products component");
+
+  const handleAddNewItem = (props) => {
+    console.log(props);
+    navigate("/products/new");
+    // push function relocate the the location i.e address
+  };
 
   const getData = () => {
     productOperation
@@ -21,13 +28,6 @@ const Products = () => {
       .catch((error) => console.log("Error fetch data", error));
   };
   useEffect(getData, []);
-
-  const navigate = useNavigate();
-  const handleAddNewItem = (props) => {
-    console.log(props);
-    navigate("/products/new");
-    // push function relocate the the location i.e address
-  };
 
   return (
     <div>
@@ -46,7 +46,7 @@ const Products = () => {
       ) : (
         <Grid container spacing={3}>
           {products.map((product, index) => (
-            <SingleProduct product={product} key={index} />
+            <SingleProduct product={product} key={index} onDelete={getData} />
           ))}
         </Grid>
       )}
