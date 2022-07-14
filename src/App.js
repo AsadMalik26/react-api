@@ -5,6 +5,7 @@ import LandingPage from "./components/LandingPage";
 import ContactUs from "./components/ContactUs";
 import PageNotFound from "./components/NotFound";
 import Products from "./components/products/Products";
+import NewProduct from "./components/products/NewProduct";
 //Router handling
 // Wrap full application in Router
 //Switch - used to tell the path and load component against the path
@@ -18,6 +19,7 @@ function App() {
           <Routes>
             {/* old method - above: Switch instead of Routes- below: component instead of element */}
             {/* <Route path="/" component={<LandingPage />} /> */}
+            <Route path="/products/new" element={<NewProduct />} />
             <Route path="/products" element={<Products />} />
             <Route path="/contact-us" element={<ContactUs />} />
             <Route path="/" element={<LandingPage />} />
