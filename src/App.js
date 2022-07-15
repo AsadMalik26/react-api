@@ -15,7 +15,7 @@ function App() {
     <Router>
       <div>
         <TopMenu />
-        <h1>XYZ Shop</h1>
+        <h1>React API</h1>
         <div style={{ paddingLeft: "20px" }}>
           <Routes>
             {/* old method - above: Switch instead of Routes- below: component instead of element */}

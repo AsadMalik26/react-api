@@ -22,9 +22,9 @@ const TopMenu = () => {
             <Link to="/" className="Link">
               Home
             </Link>
-            <Link to="/products/new" className="Link">
+            {/*  <Link to="/products/new" className="Link">
               Add New Products
-            </Link>
+            </Link> */}
             <Link to="/products" className="Link">
               Products
             </Link>

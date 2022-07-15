@@ -8,7 +8,7 @@ const SingleProduct = (props) => {
   const { product, onDelete } = props;
 
   return (
-    <Grid item xs={4} style={{ border: "1px dotted" }}>
+    <Grid item lg={4} md={6} sm={6} xs={12} style={{ border: "1px dotted" }}>
       <span>
         <h2>
           {product.title}
