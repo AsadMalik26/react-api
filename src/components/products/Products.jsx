@@ -3,6 +3,7 @@ import AddIcon from "@mui/icons-material/Add";
 import React, { useEffect, useState } from "react";
 import SingleProduct from "./SingleProduct";
 import "../CSSFiles/ProductsCSS.css";
+
 import { useNavigate } from "react-router-dom";
 import productOperation from "../../services/ProductOperations";
 
@@ -27,7 +28,7 @@ const Products = () => {
       })
       .catch((error) => console.log("Error fetch data", error));
   };
-  useEffect(getData, []);
+  useEffect(() => getData, []);
 
   return (
     <div>
@@ -41,7 +42,7 @@ const Products = () => {
         <AddIcon />
       </Fab>
 
-      {products.length === 0 ? (
+      {products.length < -1 ? (
         <p>There is no product</p>
       ) : (
         <Grid container spacing={3}>
